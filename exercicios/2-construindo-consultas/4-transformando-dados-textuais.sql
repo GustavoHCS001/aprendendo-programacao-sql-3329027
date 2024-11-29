@@ -34,7 +34,7 @@ CustomerId as Id,
 LOWER(FirstName) as Nome,
 UPPER(LastName) as Sobrenome,
 Address as Endereço,
-FirstName || ' '|| LastName as 'Nome Completo'
+CONCAT(FirstName,' ', LastName) as 'Nome Completo'
 FROM customers
 WHERE
 Country LIKE 'Brazil';
@@ -51,3 +51,9 @@ WHERE
 Country LIKE 'Brazil';
 
 -- Na consulta anterior, utilize o símbolo de coringa para construir padrões textuais
+UPPER(LastName) as Sobrenome,
+FirstName || ' '|| LastName as 'Nome Completo',
+REPLACE(Address, 'Av.','Avenida') as Endereço
+FROM customers
+WHERE
+Country LIKE 'Brazil';
